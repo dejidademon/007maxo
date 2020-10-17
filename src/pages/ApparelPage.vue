@@ -1,0 +1,74 @@
+<template>
+  <q-page v-bind="call" class="q-pa-md">
+
+     
+
+ <div style="font-size: 70px; padding: 30px;" class=" text-center row justify-between text-h3 head">
+   <q-btn @click="this.return" color="red" class="" icon="keyboard_return" push round size="25px"></q-btn>
+  Welcome
+<q-btn rounded flat clickable color="blue" size="20px" icon="shopping_cart" round class="snipcart-checkout">
+      <span class="snipcart-total-price">$0.00</span>
+    </q-btn>
+</div>
+
+<div class="row q-pt-lg justify-between">
+    
+<div>
+<youtube-player />
+</div>
+
+<div class="q-pt-lg ">
+    <left-shop />
+    </div>
+
+</div>
+
+
+  </q-page>
+</template>
+
+
+<script>
+import { mapActions } from 'vuex'
+export default {
+  methods: {
+        ...mapActions('shop', ['fbReadData']),
+        return() {
+        this.$router.push("/")
+      }
+  },
+  data() {
+   let call = this.fbReadData()
+    return {
+      call: call
+    }
+  },
+
+  components: {
+    "left-shop": require("src/components/Modules/LeftShop.vue").default,
+     "youtube-player": require("src/components/Modules/YoutubePlayer.vue").default
+  },
+};
+</script>
+
+<style>
+html {
+     background: url(../assets/bullets_falling.gif) no-repeat center fixed; 
+        background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center center;
+   min-height: 100%;
+}
+.head {
+  font-family: SpyFont_WithLine;
+    background: linear-gradient( #525252, #eaeaea, #525252);
+  font-style: italic;
+  color: transparent;
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  font-weight: 600;
+  -webkit-text-stroke-width: 0.2px;
+  -webkit-text-stroke-color: black;
+}
+
+</style>
