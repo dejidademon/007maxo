@@ -3,16 +3,16 @@ const routes = [{
     component: () => import('layouts/MainLayout.vue'),
     children: [{
         path: '',
-        name: "auth",
+        name: "/auth",
         component: () => import('pages/AuthPage.vue')
       },
       {
-        path: 'apparel',
+        path: '/apparel',
         name: "apparel",
         component: () => import('pages/ApparelPage.vue')
       },
       {
-        path: 'adminapparel',
+        path: '/adminapparel',
         name: "admin",
         component: () => import('pages/AdminApparelPage.vue')
       },
