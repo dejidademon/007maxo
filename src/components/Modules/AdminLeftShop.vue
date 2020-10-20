@@ -26,6 +26,7 @@
 
       <q-item-section side>
         <q-btn
+          type="application/json"
           class="noLine snipcart-add-item btn2"
           :data-item-id="shop.name"
           :data-item-price="shop.price"
