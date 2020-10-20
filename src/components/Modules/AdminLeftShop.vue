@@ -26,14 +26,16 @@
 
       <q-item-section side>
         <q-btn
-          class="buy-button  snipcart-add-item btn2"
-          :data-item-id="shop.id"
+          class="noLine snipcart-add-item btn2"
+          :data-item-id="shop.name"
           :data-item-price="shop.price"
-          data-item-url="/adminapparel"
+          data-item-url="/apparel"
           :data-item-name="shop.name"
            :data-item-description="shop.description"
           :data-item-image="shop.image"
-          glossy
+          data-item-custom1-name="Sizes"
+          data-item-custom1-options="Extra Small|Small|Medium|Large|Extra Large"
+           glossy
           
           size="30px"
           icon="add_shopping_cart"
