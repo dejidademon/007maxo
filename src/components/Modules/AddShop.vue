@@ -74,7 +74,8 @@ import { mapActions } from 'vuex'
           description: '',
           id: '',
           image: null,
-          price: ''
+          price: '',
+          url: 'https://www.007maxo.com/apparel'
         }
       }
     },
