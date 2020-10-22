@@ -65,6 +65,10 @@ html {
   font-style: italic;
   color: transparent;
   background-clip: border-box;
+  font-size: 30px;
+    flex-wrap: nowrap;
+    display: flex;
+    justify-content: space-between;
   -webkit-background-clip: text;
   font-weight: 600;
   -webkit-text-stroke-width: 0.2px;

@@ -59,7 +59,6 @@ const actions = {
     //child added
     allShops.on('child_added', snapshot => {
       let shop = snapshot.val()
-      console.log(shop)
       let payload = {
         id: snapshot.key,
         shop: shop
