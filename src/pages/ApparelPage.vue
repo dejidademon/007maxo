@@ -52,6 +52,65 @@ export default {
 </script>
 
 <style>
+@media screen and (max-width: 812px) {
+  .snipcart-checkout {
+    width: 50px;
+    height: 50px;
+  }
+  .head {
+    font-size: 35px;
+    flex-wrap: nowrap;
+    display: flex;
+    justify-content: space-between;
+   
+  }
+  .rtn-btn {
+    width: 60px;
+    height: 60px;
+    font-size: 20px;
+  }
+  .addBtn {
+    width: 80px;
+    height: 80px;
+    font-size: 30px;
+  }
+}
+@media screen and (min-width: 812px) {
+  .head {
+    font-size: 70px;
+    flex-wrap: nowrap;
+  }
+  .rtn-btn {
+    width: 80px;
+    height: 80px;
+    font-size: 25px;
+  }
+  .addBtn {
+    width: 120px;
+    height: 120px;
+    font-size: 40px;
+  }
+   .snipcart-checkout {
+    width: 100px;
+    height: 100px;
+    font-size: 18px;
+    margin-right: 30px;
+  }
+}
+.noLine {
+  font-family: SpyFont;
+}
+html {
+     background: url(../assets/bullets_falling.gif) no-repeat center fixed; 
+        background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center center;
+   min-height: 100%;
+}
+.head {
+  font-family: SpyFont_WithLine;
+}
+
 html {
      background: url(../assets/bullets_falling.gif) no-repeat center fixed; 
         background-size: cover;
@@ -65,7 +124,6 @@ html {
   font-style: italic;
   color: transparent;
   background-clip: border-box;
-  font-size: 30px;
     flex-wrap: nowrap;
     display: flex;
     justify-content: space-between;
