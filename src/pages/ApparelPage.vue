@@ -3,10 +3,10 @@
 
      
 
- <div style="font-size: 70px; padding: 30px;" class=" text-center row justify-between text-h3 head">
-   <q-btn @click="this.return" color="red" class="" icon="keyboard_return" push round size="25px"></q-btn>
+ <div style=" padding-bottom: 10px;" class=" text-center row justify-between head">
+   <q-btn @click="this.return" color="red" class=" rtn-btn" icon="keyboard_return" push round ></q-btn>
   Welcome
-<q-btn rounded flat clickable color="blue" size="20px" icon="shopping_cart" round class="snipcart-checkout">
+<q-btn rounded flat clickable color="blue" icon="shopping_cart" round class="snipcart-checkout">
       <span class="snipcart-total-price">$0.00</span>
     </q-btn>
 </div>

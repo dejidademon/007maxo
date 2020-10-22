@@ -1,13 +1,13 @@
 <template>
     <q-card dark style="width: 600px; height: 725px;">
-      <form @submit.prevent="submitForm">
+      <form  @submit.prevent="submitForm">
 <q-card-section>
-          <div class="text-h4 header">Add To List</div>
+          <div  class="text-h4 header">Add To List</div>
         </q-card-section>
 
 <div class="q-pb-md">
 <q-card-section>
-<q-input dark standout v-model="shopToSubmit.name" ref='name' :rules="[val => !!val || 'Field is required']" label="Name" />
+<q-input dark standout v-model="shopToSubmit.name" ref='name' :rules="[val => !!val || 'Field is required']" label="Name " />
 </q-card-section>
 
 <q-card-section>
@@ -63,24 +63,27 @@
 
 <script>
 import { mapActions } from 'vuex'
-
+import { mapGetters } from 'vuex'
+import { firebaseDb } from "boot/firebase"
+import storeShop from '../../store/store-shop'
     export default {
       data() {
 
       
       return {
         shopToSubmit: {
-          name: '',
-          description: '',
-          id: '',
-          image: null,
-          price: '',
-          url: 'https://www.007maxo.com/apparel'
+          "name": '',
+          "description": '',
+          "id": '',
+          "image": null,
+          "price": '',
+          "url": ''
         }
       }
     },
+ 
     methods: {
-      ...mapActions('shop', ['addShop']),
+      ...mapActions('shop', ['addShop', 'updateShop']),
       submitForm() {
         this.$refs.name.validate()
         if (!this.$refs.name.hasError) {
@@ -89,6 +92,7 @@ import { mapActions } from 'vuex'
       },
       submitShop() {
         this.addShop(this.shopToSubmit)
+        this.updateShop(this.shopToSubmit)
         this.$emit('close')
       },
       inputClicked() {

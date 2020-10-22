@@ -38,7 +38,7 @@ const mutations = {
 }
 
 const actions = {
-
+ 
   deleteShop({dispatch}, key) {
     dispatch('fbDeleteShop', key)
   },
@@ -49,6 +49,7 @@ const actions = {
       shop: shop
     }
     dispatch('fbAddShop', payload)
+    dispatch('fbAddUrl', payload)
   },
 
   fbReadData({commit}) {
@@ -58,6 +59,7 @@ const actions = {
     //child added
     allShops.on('child_added', snapshot => {
       let shop = snapshot.val()
+      console.log(shop)
       let payload = {
         id: snapshot.key,
         shop: shop
@@ -71,9 +73,17 @@ const actions = {
       commit('deleteShop', shopId)
     })
   },
+  //https://maxo-14a51.firebaseio.com/shop/   .json
   fbAddShop({}, payload) {
     let shopRef = firebaseDb.ref('shop' + '/' + payload.id)
     shopRef.set(payload.shop)
+  },
+  fbAddUrl({}, payload) {
+    let shopRef = firebaseDb.ref('shop' + '/' + payload.id)
+    let newUrl = "https://maxo-14a51.firebaseio.com/shop/" + payload.id +".json"
+    shopRef.update({
+     url: newUrl
+    })
   },
   fbDeleteShop({}, shopId) {
     let shopRef = firebaseDb.ref('shop' + '/' + shopId)

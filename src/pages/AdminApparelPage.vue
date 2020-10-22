@@ -1,12 +1,12 @@
 <template>
-  <q-page v-bind="call" class="q-pa-md">
+  <q-page v-bind="call" class="all-pg1 q-pa-md">
 
      
 
- <div style="color: red; font-size: 70px; padding: 30px;" class=" text-center row justify-between text-h3 head">
-   <q-btn @click="this.return" color="red" class="noLine" icon="keyboard_return" push round size="25px"></q-btn>
+ <div style="color: red;  padding-bottom: 10px;" class=" text-center row justify-between head">
+   <q-btn @click="this.return" color="red" class=" rtn-btn" icon="keyboard_return" push round ></q-btn>
    Admin Page
-<q-btn rounded flat clickable color="blue" size="20px" icon="shopping_cart" round class="snipcart-checkout">
+<q-btn rounded flat clickable color="blue" icon="shopping_cart" round class="snipcart-checkout">
       <span class="snipcart-total-price">$0.00</span>
     </q-btn>
 </div>
@@ -25,7 +25,7 @@
 
 
 <div class="text-center q-pa-md">
-  <q-btn icon="add" class="text-center q-mb-lg" color="green" @click="showAddShop = true" size="40px" />
+  <q-btn icon="add" class="text-center addBtn q-ma-sm" color="green" @click="showAddShop = true" />
 </div>
 
 <q-dialog v-model="showAddShop">
@@ -67,6 +67,51 @@ export default {
 </script>
 
 <style>
+@media screen and (max-width: 812px) {
+  .snipcart-checkout {
+    width: 50px;
+    height: 50px;
+  }
+  .head {
+    font-size: 30px;
+    flex-wrap: nowrap;
+    display: flex;
+    justify-content: space-between;
+   
+  }
+  .rtn-btn {
+    width: 60px;
+    height: 60px;
+    font-size: 20px;
+  }
+  .addBtn {
+    width: 80px;
+    height: 80px;
+    font-size: 30px;
+  }
+}
+@media screen and (min-width: 812px) {
+  .head {
+    font-size: 70px;
+    flex-wrap: nowrap;
+  }
+  .rtn-btn {
+    width: 80px;
+    height: 80px;
+    font-size: 25px;
+  }
+  .addBtn {
+    width: 120px;
+    height: 120px;
+    font-size: 40px;
+  }
+   .snipcart-checkout {
+    width: 100px;
+    height: 100px;
+    font-size: 18px;
+    margin-right: 30px;
+  }
+}
 .noLine {
   font-family: SpyFont;
 }

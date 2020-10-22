@@ -68,4 +68,10 @@ export default {
 .youtubeSearch {
   background-color: black;
 }
+@media screen and (max-width: 812px) {
+iframe {
+  width: 350px;
+  height: 300px;
+}
+}
 </style>
