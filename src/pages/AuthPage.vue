@@ -162,7 +162,7 @@ background-color: #4c484a;
     padding-left: 40%;
   }
     #a {
-    transform: scaleY(3);
+    transform: scaleX(1.4);
     width: 100%;
     height: 100%;
     
