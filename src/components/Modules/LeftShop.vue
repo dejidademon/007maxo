@@ -1,5 +1,5 @@
 <template>
-    <q-list>
+    <q-list class="list">
     
 <transition-group name="fade">
       <q-item  v-for="(shop, key) in shops" clickable :key="key" dark class="items row justify-between shadow-5">
@@ -89,9 +89,7 @@ export default {
     height: 80px;
   }
 
-    .items {
-      width: 350px;
-    }
+
     .name {
      font-size: 17px;
     }
@@ -136,9 +134,7 @@ export default {
     width: 540px;
     word-wrap:break-word;
   }
-    .items {
-      width: 825px;
-}
+
  .imags {
     width: 120px;
     height: 120px;

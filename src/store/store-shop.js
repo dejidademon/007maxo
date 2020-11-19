@@ -25,6 +25,9 @@ const state = {
     //     image: "https://media-assets-03.thedrum.com/cache/images/thedrum-prod/s3-news-tmp-10557-ad_men--2x1--940.jpg",
     //     price: "$12.00"
     //   }
+  },
+  vid: {
+    
   }
 }
 
@@ -34,6 +37,10 @@ const mutations = {
   },
   addShop(state, payload) {
     Vue.set(state.shops, payload.id, payload.shop)
+  },
+  replaceUrl(state, payload) {
+    Vue.set(state.vid, "url", payload.url)
+    
   }
 }
 
@@ -42,6 +49,17 @@ const actions = {
   deleteShop({dispatch}, key) {
     dispatch('fbDeleteShop', key)
   },
+
+  replaceUrl({dispatch}, url) {
+
+    let payload = {
+      url: url
+    }
+    dispatch('fbReplaceUrl', payload)
+  },
+
+
+
   addShop({ dispatch }, shop) {
     let shopID = uid()
     let payload = {
@@ -55,22 +73,32 @@ const actions = {
   fbReadData({commit}) {
    
     let allShops = firebaseDb.ref('shop')
-
+    let youtubeUrl = firebaseDb.ref('youtubeUrl')
     //child added
     allShops.on('child_added', snapshot => {
       let shop = snapshot.val()
+ 
       let payload = {
         id: snapshot.key,
         shop: shop
       }
+      
       commit('addShop', payload)
     })
 
-    //chind removed
     allShops.on('child_removed', snapshot => {
       let shopId = snapshot.key
       commit('deleteShop', shopId)
     })
+
+    youtubeUrl.on('child_added', snapshot => {
+      let url = snapshot.val()
+      let payload = {
+        url: url
+      }
+      commit('replaceUrl', payload)
+    })
+
   },
   //https://maxo-14a51.firebaseio.com/shop/   .json
   fbAddShop({}, payload) {
@@ -87,12 +115,20 @@ const actions = {
   fbDeleteShop({}, shopId) {
     let shopRef = firebaseDb.ref('shop' + '/' + shopId)
     shopRef.remove()
+  },
+
+  fbReplaceUrl({}, payload) {
+    let youtubeUrl = firebaseDb.ref('youtubeUrl' + '/' + 'url')
+    youtubeUrl.set(payload.url)
   }
 }
 
 const getters = {
   shops: (state) => {
     return state.shops
+  },
+  vid: (state) => {
+    return state.vid
   }
 }
 

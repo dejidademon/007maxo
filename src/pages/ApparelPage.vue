@@ -17,9 +17,11 @@
 <youtube-player />
 </div>
 
-<div class="q-pt-lg ">
+
+
     <left-shop />
-    </div>
+
+
 
 </div>
 
@@ -45,7 +47,7 @@ export default {
   },
 
   components: {
-    "left-shop": require("src/components/Modules/LeftShop.vue").default,
+    "left-shop": require("src/components/Modules/AdminLeftShop.vue").default,
      "youtube-player": require("src/components/Modules/YoutubePlayer.vue").default
   },
 };
@@ -58,7 +60,7 @@ export default {
     height: 50px;
   }
   .head {
-    font-size: 35px;
+    font-size: 3px;
     flex-wrap: nowrap;
     display: flex;
     justify-content: space-between;

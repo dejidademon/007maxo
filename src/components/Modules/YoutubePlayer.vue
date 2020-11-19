@@ -1,16 +1,16 @@
 <template>
   <div class="youtube">
-    <youtube-media
-      @ready="getUrl"
-      :video-id="this.videoId"
-      player-width="820"
-      player-height="540"
-      :player-vars="{ autoplay: 1 }"
-    ></youtube-media>
-    <!-- <form @submit.prevent="submitUrl">
+    <youtube
+      
+      :video-id="vid.url"
+      :player-vars="playerVars"
+    >
+
+    </youtube>
+    <form v-if="!hide" @submit.prevent="saveUrl">
       <q-input
         dark
-        v-model="userUrl"
+        v-model="videos"
         color="red"
         class="youtubeSearch"
         filled
@@ -18,49 +18,51 @@
       >
         <q-btn type="submit" flat icon="search"></q-btn>
       </q-input>
-    </form> -->
+    </form>
   </div>
 </template>
 
 <script>
-import Vue from "vue"
-import VueYouTubeEmbed from "vue-youtube-embed"
-import { mapActions } from "vuex"
+import { mapGetters } from 'vuex'
+import { mapActions } from 'vuex'
 import { firebaseDb } from "boot/firebase"
+import storeShop from '../../store/store-shop'
+import { LocalStorage } from 'quasar'
 const youtubeUrl = firebaseDb.ref("youtubeUrl")
-Vue.use(VueYouTubeEmbed);
+const loggedIn = LocalStorage.getItem('loggedIn')
 export default {
   data() {
     return {
-      videoId: '4LNQ3gVgRHY',
-      userUrl: "",
+      playerVars: {
+        autoplay: 0
+      },
+      videos: "",
+      hide: false
+
     }
   },
-  methods: {
-    // submitUrl() {
-    //   this.saveUrl(this.userUrl);
-    // },
+    computed: {
+    ...mapGetters('shop', ['vid']),
 
-    saveUrl(video) {
-      const videos = {
-        video: video,
-      }
-      const result = videos.video;
-      youtubeUrl.set(videos)
-      this.videoId = result
-
-    },
-    getUrl() {
-
-     
- 
-
-      
-      // console.log(this.result)
-     
-     
-    } 
   },
+  methods: {
+     ...mapActions('shop', ['replaceUrl']),
+
+    saveUrl() {
+      this.replaceUrl(this.videos)
+      this.vid.url = this.videos
+    },
+
+    hideForm() {
+      if (loggedIn == 'customer') {
+        this.hide = true
+      }
+    }
+
+  },
+  mounted() {
+    this.hideForm()
+  }
 }
 </script>
 
@@ -68,10 +70,16 @@ export default {
 .youtubeSearch {
   background-color: black;
 }
+@media screen and (min-width: 812px) {
+iframe {
+  width:  47vw;
+  height: 25vw;
+}
+}
 @media screen and (max-width: 812px) {
 iframe {
-  width: 350px;
-  height: 300px;
+  width:  90vw;
+  height: 40vh;
 }
 }
 </style>

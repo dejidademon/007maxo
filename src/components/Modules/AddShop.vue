@@ -83,7 +83,7 @@ import storeShop from '../../store/store-shop'
     },
  
     methods: {
-      ...mapActions('shop', ['addShop', 'updateShop']),
+      ...mapActions('shop', ['addShop']),
       submitForm() {
         this.$refs.name.validate()
         if (!this.$refs.name.hasError) {
@@ -92,7 +92,6 @@ import storeShop from '../../store/store-shop'
       },
       submitShop() {
         this.addShop(this.shopToSubmit)
-        this.updateShop(this.shopToSubmit)
         this.$emit('close')
       },
       inputClicked() {

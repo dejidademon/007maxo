@@ -1,6 +1,6 @@
 <template>
 
-    <q-list>
+    <q-list class="list">
     
 
       <q-item  v-for="(shop, key) in shops" clickable :key="key" dark class="items row justify-between shadow-5">
@@ -71,7 +71,6 @@
 
 <script>
 import { mapActions } from 'vuex'
-
 import { mapGetters } from 'vuex'
 export default {
   computed: {
@@ -117,9 +116,7 @@ export default {
     height: 80px;
   }
 
-    .items {
-      width: 350px;
-    }
+ 
     .name {
      font-size: 17px;
     }
@@ -139,7 +136,12 @@ export default {
       font-size: 14px;
 
     }
-
+  .list {
+    width: 100%;
+  }
+    .items {
+    width: 99%;
+  }
 
 }
 @media screen and (min-width: 812px) {
@@ -150,6 +152,10 @@ export default {
       font-size: 17px;
       margin-bottom: 5px;
       }
+      .list {
+         width: 100%;
+      }
+
     .snipcart-add-item {
       width: 150px;
       height: 100px;
@@ -164,9 +170,7 @@ export default {
     width: 540px;
     word-wrap:break-word;
   }
-    .items {
-      width: 825px;
-}
+
  .imags {
     width: 120px;
     height: 120px;
@@ -177,6 +181,11 @@ export default {
     align-content: center;
 
   }
+
+  .list {
+    width:51%
+  }
+
 }
 
 
@@ -197,7 +206,7 @@ export default {
   
 }
 .btn2 {
-  background-color: green;
+  background-color:#f86afd;
 }
 
 .text-amber {

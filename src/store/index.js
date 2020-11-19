@@ -2,11 +2,16 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import VueTyperPlugin from 'vue-typer'
 import shop from './store-shop'
-import VueYouTubeEmbed from 'vue-youtube-embed'
+import VueYoutube from 'vue-youtube'
 import auth from './store-auth'
+import VideoBackground from 'vue-responsive-video-background-player'
+import { Plugin } from 'vue-responsive-video-background-player'
+
+Vue.use(Plugin);
+Vue.component('video-background', VideoBackground);
 Vue.use(Vuex)
 Vue.use(VueTyperPlugin)
-Vue.use(VueYouTubeEmbed, { global: true, componentId: "youtube-media" })
+Vue.use(VueYoutube)
 /*
  * If not building with SSR mode, you can
  * directly export the Store instantiation;
