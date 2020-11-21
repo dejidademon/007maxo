@@ -1,5 +1,5 @@
 <template>
-  <div class="youtube">
+  <div class="animate__animated animate__fadeInLeft youtube">
     <youtube
       
       :video-id="vid.url"
@@ -56,6 +56,12 @@ export default {
     hideForm() {
       if (loggedIn == 'customer') {
         this.hide = true
+      }
+      else if (loggedIn == 'admin') {
+        this.hide = false
+      }
+      else {
+        this.hide = false
       }
     }
 

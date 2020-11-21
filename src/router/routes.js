@@ -16,11 +16,7 @@ const routes = [{
         name: "admin",
         component: () => import('pages/AdminApparelPage.vue')
       },
-      {
-        path: '/shop',
-        name: "shop",
-        component: () => import('components/Modules/LeftShop.vue')
-      }
+      
     ]
   },
 

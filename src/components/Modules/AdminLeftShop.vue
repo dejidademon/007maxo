@@ -2,8 +2,14 @@
 
     <q-list class="list">
     
+      <q-btn class="animate__animated animate__fadeInRight" clickable @click="toggled = !toggled" glossy push id="dropDwn">
+        <div class="absolute-center">SHOP</div>
+      </q-btn>
 
-      <q-item  v-for="(shop, key) in shops" clickable :key="key" dark class="items row justify-between shadow-5">
+ 
+<transition name = "fallDown">
+    <div v-if="toggled">
+        <q-item  v-for="(shop, key) in shops" clickable :key="key" dark class="items row justify-between shadow-5">
         <div>
 
         <q-item-section  >
@@ -64,7 +70,8 @@
       
 
       </q-item>
-
+    </div>
+    </transition>
     </q-list>
 
 </template>
@@ -72,7 +79,15 @@
 <script>
 import { mapActions } from 'vuex'
 import { mapGetters } from 'vuex'
+import { LocalStorage } from 'quasar'
+let loggedIn = LocalStorage.getItem('loggedIn')
 export default {
+  data() {
+        
+        return {
+          toggled: false
+        }
+  },
   computed: {
     ...mapGetters('shop', ['shops'])
   },
@@ -90,16 +105,41 @@ export default {
       }).onOk(() => {
        this.deleteShop(key)
     })
-    }
-  },
- 
-}
+    },
 
+ 
+},
+
+}
 
 
 </script>
 
 <style>
+
+.fallDown-enter-active {
+  animation: fallDown 2s;
+position: relative;
+
+}
+
+.fallDown-leave-active {
+  animation: fallDown 2s reverse;
+  position: relative;
+}
+
+@keyframes fallDown {
+  0% {
+    top: -20%;
+    opacity: 0;
+  }
+
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+
 @media screen and (max-width: 812px) {
   .allBtns {
      display:flex;
@@ -120,9 +160,9 @@ export default {
     .name {
      font-size: 17px;
     }
-.text-h7 {
-  font-size: 13px;
-}
+    .text-h7 {
+      font-size: 13px;
+    }
     .deleteButton {
       margin-top: 10px;
       max-width: 100px;
@@ -137,6 +177,7 @@ export default {
 
     }
   .list {
+    padding-top: 3%;
     width: 100%;
   }
     .items {
@@ -194,9 +235,9 @@ export default {
 
 }
 .name {
-  background: linear-gradient( #6e6e6e, #eaeaea, #270a0a);
+  /* background: linear-gradient( #6e6e6e, #eaeaea, #270a0a); */
   font-style: italic;
-  color: transparent;
+  color: linear-gradient( #6e6e6e, #eaeaea, #270a0a);
   background-clip: border-box;
   -webkit-background-clip: text;
   font-family: SpyFont;
@@ -211,5 +252,17 @@ export default {
 
 .text-amber {
     color: #2196f3 !important;
+}
+#dropDwn {
+  background-color: #f86afd;
+  color: white;
+  width: 100%;
+  height: 5vh;
+  font-family: SpyFont;
+  font-size: 3vh;
+  padding: 0px;
+  margin: 0px;
+
+
 }
 </style>

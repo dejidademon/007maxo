@@ -1,11 +1,11 @@
 <template>
   <q-page v-bind="call" class="q-pa-md">
 
-     
+     <img id="b" src="../assets/bullets_falling.gif">
 
- <div style=" padding-bottom: 10px;" class=" text-center row justify-between head">
+ <div style=" padding-bottom: 10px;" class=" text-center animate__animated animate__fadeInDown row justify-between head">
    <q-btn @click="this.return" color="red" class=" rtn-btn" icon="keyboard_return" push round ></q-btn>
-  Welcome
+ <img id="fadeLogo"  src="../assets/MaxoText1.gif">
 <q-btn rounded flat clickable color="blue" icon="shopping_cart" round class="snipcart-checkout">
       <span class="snipcart-total-price">$0.00</span>
     </q-btn>
@@ -13,7 +13,7 @@
 
 <div class="row q-pt-lg justify-between">
     
-<div>
+<div cla>
 <youtube-player />
 </div>
 
@@ -47,14 +47,36 @@ export default {
   },
 
   components: {
-    "left-shop": require("src/components/Modules/AdminLeftShop.vue").default,
-     "youtube-player": require("src/components/Modules/YoutubePlayer.vue").default
+    "left-shop": require("src/components/Modules/CusLeftShop.vue").default,
+     "youtube-player": require("src/components/Modules/CusYoutubePlayer.vue").default
   },
 };
 </script>
 
 <style>
+
+#b {
+position:fixed;
+z-index: -1;
+background-color: #4c484a;
+
+}
+
+.AllInputs {
+  margin-top: 1%;
+}
+::-webkit-scrollbar {
+  width: 0 !important;
+}
+#fadeLogo {
+  height: 10vh;
+  width: 24vw;
+}
 @media screen and (max-width: 812px) {
+  #fadeLogo {
+  height: 7vh;
+  width: 50vw;
+}
   .snipcart-checkout {
     width: 50px;
     height: 50px;
@@ -78,6 +100,7 @@ export default {
   }
 }
 @media screen and (min-width: 812px) {
+  
   .head {
     font-size: 70px;
     flex-wrap: nowrap;
@@ -113,13 +136,7 @@ html {
   font-family: SpyFont_WithLine;
 }
 
-html {
-     background: url(../assets/bullets_falling.gif) no-repeat center fixed; 
-        background-size: cover;
-   background-repeat: no-repeat;
-   background-position: center center;
-   min-height: 100%;
-}
+
 .head {
   font-family: SpyFont_WithLine;
     background: linear-gradient( #525252, #eaeaea, #525252);

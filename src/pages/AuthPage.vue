@@ -76,6 +76,7 @@ import router from '../router/routes.js'
   import { openURL } from 'quasar'
   import { mapActions } from 'vuex'
   import { mapGetters } from 'vuex'
+  import { LocalStorage } from 'quasar'
 export default {
   data() {
 
@@ -109,8 +110,11 @@ export default {
       if (this.password == this.passwords.cusPass.cusPass) {
         this.perms = "customer"
       }
-      if (this.password == this.passwords.adminPass.adminPass) {
+      else if (this.password == this.passwords.adminPass.adminPass) {
         this.perms = "admin"
+      }
+      else {
+        this.perms = 'false'
       }
       return this.perms
     }

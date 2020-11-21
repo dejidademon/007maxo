@@ -1,4 +1,5 @@
 import { LocalStorage } from 'quasar'
+import Vue from 'vue';
 
 export default ({ router }) => {
   router.beforeEach((to, from, next) =>{
@@ -11,6 +12,9 @@ export default ({ router }) => {
     }
     else {
     next()
+    
     }
+
   })
+
 }

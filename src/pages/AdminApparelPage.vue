@@ -1,10 +1,11 @@
 <template>
   <q-page v-bind="call" class="all-pg1 q-pa-md">
 
-     
 
- <div v-bind="passCall" style="color: red;  padding-bottom: 10px;" class=" text-center row justify-between head">
+
+ <div v-bind="passCall" style="color: red;  padding-bottom: 10px;" class="text-center row justify-between head">
    <q-btn @click="this.return" color="red" class=" rtn-btn" icon="keyboard_return" push round ></q-btn>
+    <img id="fadeLogo" class="animate__animated animate__fadeInDown" src="../assets/MaxoText1.gif">
 <q-btn rounded flat clickable color="blue" icon="shopping_cart" round class="snipcart-checkout">
       <span class="snipcart-total-price">$0.00</span>
     </q-btn>
@@ -23,7 +24,7 @@
 
 </div>
 
-<div class="AllInputs">
+<div class="animate__animated animate__fadeInLeft AllInputs">
 
   <h1 style="color: red; font-size: 5vh; text-align: center;" class="name Line">Passwords</h1>
   <!-- Admin -->
@@ -51,7 +52,7 @@
 
 <!-- Customer -->
 
-    <form @submit.prevent="saveCus">
+    <form  @submit.prevent="saveCus">
     <q-input
     v-model="cusPass"
        class="q-pb-md"
@@ -144,8 +145,15 @@ export default {
 ::-webkit-scrollbar {
   width: 0 !important;
 }
+#fadeLogo {
+  height: 10vh;
+  width: 24vw;
+}
 @media screen and (max-width: 812px) {
-
+  #fadeLogo {
+  height: 7vh;
+  width: 50vw;
+}
   .AllInputs {
       width: 98%;
   }
@@ -172,6 +180,7 @@ export default {
   }
 }
 @media screen and (min-width: 812px) {
+   
     .AllInputs {
       width: 48%;
   }
