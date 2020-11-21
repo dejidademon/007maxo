@@ -32,7 +32,7 @@
 </q-card-section>
 
 <div class="text-h4 header text-center q-pt-none">Image</div>
-<q-card-section class="q-pt-md column text-center justify-center">
+<q-card-section class="q-pt-md column justify-center">
 
 
 
@@ -43,8 +43,10 @@
       type="file"
       ref='inputFile'
       accept=".jpg, image/*"
-      placeholder="edit me"
+      
+      
     />
+    (Max 900KB)
 </q-card-section>
 
 </div>

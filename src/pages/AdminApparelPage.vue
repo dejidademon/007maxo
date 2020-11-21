@@ -1,11 +1,19 @@
 <template>
-  <q-page v-bind="call" class="all-pg1 q-pa-md">
+  <q-page v-bind="call" class="all-pg1">
 
+     <img id="b" src="../assets/bullets_falling.gif">
 
-
+<div class="q-pa-md">
  <div v-bind="passCall" style="color: red;  padding-bottom: 10px;" class="text-center row justify-between head">
    <q-btn @click="this.return" color="red" class=" rtn-btn" icon="keyboard_return" push round ></q-btn>
-    <img id="fadeLogo" class="animate__animated animate__fadeInDown" src="../assets/MaxoText1.gif">
+    
+  <div class="imgHead">
+ <img id="fadeLogo"  src="../assets/MaxoText1.gif">
+   <a target="blank" href="https://www.instagram.com/still.too.philthy/">
+    <img id="instaLogo"  src="../assets/insta_logo.png">
+    </a>
+  </div>
+
 <q-btn rounded flat clickable color="blue" icon="shopping_cart" round class="snipcart-checkout">
       <span class="snipcart-total-price">$0.00</span>
     </q-btn>
@@ -82,7 +90,7 @@
 <q-dialog v-model="showAddShop">
 <add-shop @close="showAddShop = false"/>
   </q-dialog>
-
+</div>
   </q-page>
 </template>
 
@@ -139,8 +147,23 @@ export default {
 </script>
 
 <style>
+.imgHead {
+  max-height: 8vh;
+  max-width: 57vw;
+}
+#instaLogo {
+  height: 60%;
+}
 .AllInputs {
   margin-top: 1%;
+}
+#b {
+position:fixed;
+z-index: -1;
+background-color: #4c484a;
+}
+html {
+  background-color: #4c484a;
 }
 ::-webkit-scrollbar {
   width: 0 !important;
@@ -150,6 +173,15 @@ export default {
   width: 24vw;
 }
 @media screen and (max-width: 812px) {
+  #instaLogo {
+  display: none;
+}
+  #b {
+    transform: scaleX(1.4);
+    width: 100%;
+    height: 100%;
+    
+  }
   #fadeLogo {
   height: 7vh;
   width: 50vw;
@@ -180,7 +212,12 @@ export default {
   }
 }
 @media screen and (min-width: 812px) {
-   
+   #b {
+    transform: scaleX(1);
+    width: 100%;
+    height: 100%;
+    
+  }
     .AllInputs {
       width: 48%;
   }
@@ -211,13 +248,7 @@ export default {
 .Line {
   font-family: SpyFont_WithLine;
 }
-html {
-     background: url(../assets/bullets_falling.gif) no-repeat center fixed; 
-        background-size: cover;
-   background-repeat: no-repeat;
-   background-position: center center;
-   min-height: 100%;
-}
+
 .head {
   font-family: SpyFont_WithLine;
 }

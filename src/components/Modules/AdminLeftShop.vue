@@ -38,7 +38,7 @@
         <q-btn
           enctype="application/json"
           class="noLine snipcart-add-item btn2"
-          :data-item-id="shop.name"
+          :data-item-id="shop.id"
           :data-item-price="shop.price"
            :data-item-url="shop.url"
           :data-item-name="shop.name"

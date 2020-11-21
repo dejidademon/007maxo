@@ -77,6 +77,7 @@ import router from '../router/routes.js'
   import { mapActions } from 'vuex'
   import { mapGetters } from 'vuex'
   import { LocalStorage } from 'quasar'
+   let loggedIn = LocalStorage.getItem('loggedIn')
 export default {
   data() {
 
@@ -104,7 +105,7 @@ export default {
       }
    },
     showEnterBtn() {
-     setTimeout(() => this.showEnter = true, 7500);
+        setTimeout(() => this.showEnter = true, 7500);
     },
     checkingPassword() {
       if (this.password == this.passwords.cusPass.cusPass) {

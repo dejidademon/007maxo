@@ -1,11 +1,19 @@
 <template>
-  <q-page v-bind="call" class="q-pa-md">
+  <q-page v-bind="call">
 
      <img id="b" src="../assets/bullets_falling.gif">
 
+<div class="q-pa-md">
  <div style=" padding-bottom: 10px;" class=" text-center animate__animated animate__fadeInDown row justify-between head">
    <q-btn @click="this.return" color="red" class=" rtn-btn" icon="keyboard_return" push round ></q-btn>
+   
+   <div class="imgHead">
  <img id="fadeLogo"  src="../assets/MaxoText1.gif">
+    <a target="blank" href="https://www.instagram.com/still.too.philthy/">
+    <img id="instaLogo"  src="../assets/insta_logo.png">
+    </a>
+  </div>
+
 <q-btn rounded flat clickable color="blue" icon="shopping_cart" round class="snipcart-checkout">
       <span class="snipcart-total-price">$0.00</span>
     </q-btn>
@@ -25,7 +33,7 @@
 
 </div>
 
-
+</div>
   </q-page>
 </template>
 
@@ -61,7 +69,13 @@ z-index: -1;
 background-color: #4c484a;
 
 }
-
+.imgHead {
+  max-height: 8vh;
+  max-width: 57vw;
+}
+#instaLogo {
+  height: 60%;
+}
 .AllInputs {
   margin-top: 1%;
 }
@@ -73,10 +87,19 @@ background-color: #4c484a;
   width: 24vw;
 }
 @media screen and (max-width: 812px) {
+  #instaLogo {
+  display: none;
+}
   #fadeLogo {
   height: 7vh;
   width: 50vw;
 }
+#b {
+    transform: scaleX(1);
+    width: 100%;
+    height: 100%;
+    
+  }
   .snipcart-checkout {
     width: 50px;
     height: 50px;
@@ -100,7 +123,11 @@ background-color: #4c484a;
   }
 }
 @media screen and (min-width: 812px) {
-  
+    #b {
+  transform: scale(1);
+  width: 100%;
+  height: 100%;
+ }
   .head {
     font-size: 70px;
     flex-wrap: nowrap;
@@ -125,13 +152,13 @@ background-color: #4c484a;
 .noLine {
   font-family: SpyFont;
 }
-html {
+/* html {
      background: url(../assets/bullets_falling.gif) no-repeat center fixed; 
         background-size: cover;
    background-repeat: no-repeat;
    background-position: center center;
    min-height: 100%;
-}
+} */
 .head {
   font-family: SpyFont_WithLine;
 }
